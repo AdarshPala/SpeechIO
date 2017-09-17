@@ -33,11 +33,11 @@ import static java.lang.System.currentTimeMillis;
 public class PractiseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static String foo="";
+    public static double foo = 0;
     public static long beginningTime = 0;
     public static long endTime = 0;
 
-    private ArrayList<String> result;
+    public static ArrayList<String> result;
     private TextView txvResult;
     private DatabaseReference mRef;
     private StringBuilder val2 = new StringBuilder();
@@ -123,7 +123,8 @@ public class PractiseActivity extends AppCompatActivity
         textInputSen = textInput.replaceAll (",", "");
         textInputSen = textInput.replaceAll ("\\?", "");
         String[] textInputWords = textInputSen.split (" ");
-        String[] speechInputWords = speechInput.split (" ");
+        String speechInputt = speechInput.replaceAll(",", "");
+        String[] speechInputWords = speechInputt.split (" ");
         int shorter;
         int score = 0;
         if (textInputWords.length > speechInputWords.length)
@@ -148,7 +149,7 @@ public class PractiseActivity extends AppCompatActivity
         if (ans > 1)
             ans = 1;
         ans = ans*100;
-        foo = ans+"";
+        foo = ans;
         //myName.setText(foo);
     }
 

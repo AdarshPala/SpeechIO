@@ -17,8 +17,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 import static com.example.android.speechio.PractiseActivity.beginningTime;
 import static com.example.android.speechio.PractiseActivity.endTime;
+import static com.example.android.speechio.PractiseActivity.result;
 
 public class ResultsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,9 +42,51 @@ public class ResultsActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        TextView score = (TextView) findViewById(R.id.results_id);
+
+        TextView accuracy = (TextView) findViewById(R.id.accuracy_id);
+        TextView duration = (TextView) findViewById(R.id.duration_id);
+        TextView wpm = (TextView) findViewById(R.id.wpm_id);
         long difference = ((PractiseActivity.endTime - PractiseActivity.beginningTime)/1000);
-        score.setText("You were " + PractiseActivity.foo + "% accurate!" + difference);
+        duration.setText("Duration: " + difference + " seconds");
+        double roundedAcc = round(PractiseActivity.foo, 2);
+        accuracy.setText("Accuracy: " + roundedAcc + "%");
+        int numOfwords = countWords(result.get(0));
+        double roundedNum = round((double) numOfwords/ (double) (difference), 2);
+        wpm.setText("Words per Second: " + roundedNum + "");
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+
+    public static int countWords(String s){
+
+        int wordCount = 0;
+
+        boolean word = false;
+        int endOfLine = s.length() - 1;
+
+        for (int i = 0; i < s.length(); i++) {
+            // if the char is a letter, word = true.
+            if (Character.isLetter(s.charAt(i)) && i != endOfLine) {
+                word = true;
+                // if char isn't a letter and there have been letters before,
+                // counter goes up.
+            } else if (!Character.isLetter(s.charAt(i)) && word) {
+                wordCount++;
+                word = false;
+                // last word of String; if it doesn't end with a non letter, it
+                // wouldn't count without this.
+            } else if (Character.isLetter(s.charAt(i)) && i == endOfLine) {
+                wordCount++;
+            }
+        }
+        return wordCount;
     }
 
     @Override

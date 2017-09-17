@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="match_parent"
@@ -7,12 +7,28 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/results_id"
+        android:id="@+id/duration_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="240dp"
+        android:paddingTop="80dp"
         android:paddingLeft="40dp"
-        android:textSize="30sp"
-        android:text=""/>
+        android:textSize="25sp"
+        android:text="Duration: n/a"/>
+    <TextView
+        android:id="@+id/accuracy_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingLeft="40dp"
+        android:textSize="25sp"
+        android:text="Accuracy: n/a"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/wpm_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingLeft="40dp"
+        android:textSize="25sp"
+        android:text="Words per Minute: n/a"/>
+</LinearLayout>

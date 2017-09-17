@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "532903055203",
+    "firebase_url": "https://speechio-7621c.firebaseio.com",
+    "project_id": "speechio-7621c",
+    "storage_bucket": "speechio-7621c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532903055203:android:e31adfe2a49a0183",
+        "android_client_info": {
+          "package_name": "com.example.android.speechio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532903055203-6qd21o3ne5go94u1nsokpc7uluhrt4hm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.speechio",
+            "certificate_hash": "e8a4eb56a57aa3862941b9002c0b0d6f4dc97e86"
+          }
+        },
+        {
+          "client_id": "532903055203-56o7svqs0pn6gb22o11rqlvr2qt0vo87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_VVN2YjdyZM3TeoTe17tEHYDy_EASqMw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532903055203-56o7svqs0pn6gb22o11rqlvr2qt0vo87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
